@@ -2,7 +2,7 @@ function setup() {
   let NUM_CIRCLES = 8;
   let RADIUS = 600/(NUM_CIRCLES);
   createCanvas(600, 600);
-  background(102, 155, 188);
+  background(0);
   for (var i = 0; i < 400; i++) {
     for (var j = 0; j < 400; j++) {
       let pointX = i * RADIUS;
