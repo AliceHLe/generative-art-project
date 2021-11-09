@@ -1,0 +1,29 @@
+function setup() {
+  let NUM_CIRCLES = 8;
+  let RADIUS = 600/(NUM_CIRCLES);
+  createCanvas(600, 600);
+  background(102, 155, 188);
+  for (var i = 0; i < 400; i++) {
+    for (var j = 0; j < 400; j++) {
+      let pointX = i * RADIUS;
+      let pointY = j * RADIUS;
+      for (var k = 0; k < 4; k++) {
+        let randomColor = random();
+        if (randomColor < 0.33) {
+          fill(3, 50, 112);
+        }
+        else if (randomColor < 0.66) {
+          fill(162, 17, 18)
+        }
+        else {
+          fill(101, 1, 12)
+        }
+        circle(pointX, pointY, RADIUS - k * 15);
+      }
+    }
+  }
+  
+}
+
+function draw() {
+}
