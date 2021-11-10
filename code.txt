@@ -1,3 +1,5 @@
+//This is great Alice - just putting in a comment here to show you that I can do so.
+
 function setup() {
   let NUM_CIRCLES = 8;
   let RADIUS = 600/(NUM_CIRCLES);
