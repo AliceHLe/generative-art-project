@@ -10,16 +10,29 @@ function draw(){
   SQUARE_SIDE = 15;
   x = 0;
   y = 0;
-  TRANSLATE_X = random(-50, 50);
-  TRANSLATE_Y = random(-50, 50);
-  ROTATE = random(0, 360);
   //I initially create rows of squares that would fit the entire canva
   for (let i = 0; i < CANVA_HEIGHT; i++) {
     for (let j = 0; j < CANVA_WIDTH; j++) {
-      //Then, I randomly translate the squares up and down 
-      translate(TRANSLATE_X, TRANSLATE_Y);
-      //I also randomly rotate the squares 
-      rotate(ROTATE);
+      //I draw the square 
+      random_elements();
+      rect(x,y,SQUARE_SIDE);
+      x+= SQUARE_SIDE;
+    }
+    x = 0;
+    y+= SQUARE_SIDE;
+  }
+}
+function random_elements(){
+  TRANSLATE_X = random(-50, 50);
+  TRANSLATE_Y = random(-50, 50);
+  ROTATE = random(0, 360);
+  //Then, I randomly translate the squares up and down 
+  translate(TRANSLATE_X, TRANSLATE_Y);
+  //I also randomly rotate the squares 
+  rotate(ROTATE);
+  random_color();
+}
+function random_color(){
       //I choose 4 colors beforehand. Then, after the value is randomed
       //from 0 to 1, I assign so that each color has 25% chance of 
       //getting selected
@@ -36,11 +49,4 @@ function draw(){
         else {
           fill('#d76735')
         }
-      //I draw the square 
-      rect(x,y,SQUARE_SIDE);
-      x+= SQUARE_SIDE;
-    }
-    x = 0;
-    y+= SQUARE_SIDE;
-  }
 }
