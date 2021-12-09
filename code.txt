@@ -1,31 +1,44 @@
-//This is great Alice - just putting in a comment here to show you that I can do so.
 
 function setup() {
-  let NUM_CIRCLES = 8;
-  let RADIUS = 600/(NUM_CIRCLES);
-  createCanvas(600, 600);
-  background(0);
-  for (var i = 0; i < 400; i++) {
-    for (var j = 0; j < 400; j++) {
-      let pointX = i * RADIUS;
-      let pointY = j * RADIUS;
-      for (var k = 0; k < 4; k++) {
-        let randomColor = random();
-        if (randomColor < 0.33) {
-          fill(3, 50, 112);
-        }
-        else if (randomColor < 0.66) {
-          fill(162, 17, 18)
-        }
-        else {
-          fill(101, 1, 12)
-        }
-        circle(pointX, pointY, RADIUS - k * 15);
-      }
-    }
-  }
+  createCanvas(400, 400);
   
 }
 
-function draw() {
+function draw(){
+  //draw rows of squares inside the table
+  //translate up and down, rotate randomly
+  CANVA_HEIGHT = 400;
+  CANVA_WIDTH = 400;
+  SQUARE_SIDE = 15;
+  x = 0;
+  y = 0;
+  TRANSLATE_X = random(-50, 50);
+  TRANSLATE_Y = random(-50, 50);
+  ROTATE = random(0, 360);
+  //I initially create rows of squares that would fit the entire canva
+  
+  r=242;
+  g=216;
+  b=179;
+  
+  for (let i = 0; i < CANVA_HEIGHT; i++) {
+    for (let j = 0; j < CANVA_WIDTH; j++) {
+      //Then, I randomly translate the squares up and down 
+      translate(TRANSLATE_X, TRANSLATE_Y);
+      //I also randomly rotate the squares 
+      rotate(ROTATE);
+      //I choose 4 colors beforehand. Then, after the value is randomed
+      //from 0 to 1, I assign so that each color has 25% chance of 
+      //getting selected
+      r += Math.floor(random(-4,5));
+      g += Math.floor(random(-4,5));
+      b += Math.floor(random(-4,5));
+      fill(r,g,b);
+      //I draw the square 
+      rect(x,y,SQUARE_SIDE);
+      x+= SQUARE_SIDE;
+    }
+    x = 0;
+    y+= SQUARE_SIDE;
+  }
 }
